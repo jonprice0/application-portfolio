@@ -1,6 +1,6 @@
 export default function Contact() {
     return(
-        <div>
+        <div id="contact">
             <form>
                 I'm a contact form!
             </form>
