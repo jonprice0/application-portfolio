@@ -1,19 +1,22 @@
-export default function Navigation() {
+export default function Navigation(props) {
+    const {
+        sections = [],
+        setCurrentSection,
+        currentSection
+    } = props;
+    
     return(
         <nav>
             <ul>
-                <li>
-                    <a href="#about">About Me</a>
-                </li>
-                <li>
-                    <a href="#portfolio">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-                <li>
-                    <a href="#resumé">Resumé</a>
-                </li>
+                {sections.map((section) => (
+                    <li className={`${currentSection === section && 'navActive'}`} key={section}>
+                        <span onClick={() => {
+                            setCurrentSection(section)
+                        }}>
+                            {section}
+                        </span>
+                    </li>
+                ))}
             </ul>
         </nav>
     );
